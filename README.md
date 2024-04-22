@@ -33,7 +33,7 @@ Okay, we're really narrowing things down now, but  we can go further. We're unin
 ![image](https://github.com/CallMeTak/SoundCoreReversing/assets/104554457/fa3d9f0e-bb6e-44c8-9c4a-a79781d88f19)
 
 Now we have 14 entries in our Wireshark window. Much less than before, and we can see the raw data (in hexadecimal) that was sent. However, I only selected an ANC mode 7 times, so which entries are relevant? Well I can just start from the bottom (I'm fairly confident the last entry is relevant as I turned off bluetooth just as I finished toggling between modes). Then I can just look around for any discrepancies.
-![image](https://github.com/CallMeTak/SoundCoreReversing/assets/104554457/2918b6dd-8512-441a-8be2-df8830e61a49)
+![Wireshark_2zkNGcBm84](https://github.com/CallMeTak/SoundCoreReversing/assets/104554457/ddedb9d3-b852-4d54-b69e-6c13a09298d9)
 
 We can see the data slightly changing at the bottom window when navigating between different entries. Only a few bytes change each time. However, after the 7th entry from the bottom, there's much less data. Coincidence? Nope, whatever those first few entries are, they're irrelevant to us, at least for now. The last 7 entries contain the data needed to switch between each ANC mode (one of them is a duplicate because the app automatically selected an option when I opened it).
 
