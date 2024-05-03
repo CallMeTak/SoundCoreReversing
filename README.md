@@ -27,7 +27,8 @@ If we scroll down some, we can see the communication between our device and the 
 ![image](https://github.com/CallMeTak/SoundCoreReversing/assets/104554457/53c479d7-0038-4b2f-9c2b-d5f01453bf97)
 
 This is what we're looking for. Now we can filter our Wireshark to display only data sent from my Android device to my earbuds using this display filter: ``bluetooth.dst == ac:12:2f:68:7e:15``
-<img width="1280" alt="Wireshark_tn1ikr33o5" src="https://gist.github.com/assets/104554457/3d26b723-fc47-4840-8199-55295e9c06c1">
+![image](https://github.com/CallMeTak/SoundCoreReversing/assets/104554457/ef90b6d5-4e1c-4be3-96fc-6d3b2320a778)
+
 Okay, we're really narrowing things down now, but  we can go further. We're uninterested in the HFP, AVRCP, and AVDTP protocols. These are audio/playback related (refer back to the Bluetooth reference above). The remaining protocols left would be L2CAP, RFCOMM, and SPP. L2CAP and RFCOMM are transport protocols (with RFCOMM being used on top of L2CAP). We don't care about the transport protocol info, we want the actual data that was sent from the device (which uses the transport protocol), so we are left with SPP: Serial Port Profile. It provides a virtual serial port to send arbitrary data through.
 
 ![image](https://github.com/CallMeTak/SoundCoreReversing/assets/104554457/fa3d9f0e-bb6e-44c8-9c4a-a79781d88f19)
