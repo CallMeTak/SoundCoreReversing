@@ -39,3 +39,5 @@ Now we have 14 entries in our Wireshark window. Much less than before, and we ca
 We can see the data slightly changing at the bottom window when navigating between different entries. Only a few bytes change each time. However, after the 7th entry from the bottom, there's much less data. Coincidence? Nope, whatever those first few entries are, they're irrelevant to us, at least for now. The last 7 entries contain the data needed to switch between each ANC mode (one of them is a duplicate because the app automatically selected an option when I opened it).
 
 We can test this by sending those exact bytes to the earbuds over Bluetooth serial using Python. If you look closely, Wireshark says channel 12 is used for all the data sent. A channel in Bluetooth is similar to a port. So if I send ``08ee00000001010a0002`` over channel 12 using SPP, then my earbuds will switch to normal mode.
+
+# To be continued..
